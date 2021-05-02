@@ -34,7 +34,7 @@ pipeline {
           
             steps {
         withDockerRegistry([ credentialsId: "Docker-Credentials", url: "" ]) {
-          bat  'docker push 21041993/spring-boot-actuator:1.0.1'
+              bat 'docker push 21041993/spring-boot-actuator:1.0.1'
         }
                   
           }
