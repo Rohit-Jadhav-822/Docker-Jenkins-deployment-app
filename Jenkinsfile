@@ -24,7 +24,7 @@ pipeline {
        stage('Docker Build and Tag') {
            steps {
               
-                bat 'docker build -t spring-boot-actuator:1.0.1 .' 
+                bat 'docker build -t spring-boot-actuator .' 
                 bat 'docker tag spring-boot-actuator 21041993/spring-boot-actuator:1.0.1'
                
           }
