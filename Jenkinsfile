@@ -56,10 +56,10 @@ pipeline {
             }
         }
     }
-     post { 
-        always { 
-          junit 'test-results.xml'   
-        }
-    }
+     post {
+                success {
+                    junit '**/target/surefire-reports/TEST-*.xml'
+                }
+            }
     
 }
