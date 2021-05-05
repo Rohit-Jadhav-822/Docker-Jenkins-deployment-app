@@ -13,7 +13,15 @@ pipeline {
              
           }
         }
-	 stage('Execute Maven') {
+	
+	stage('Run tests') {
+           steps {
+             
+                bat 'mvn test'             
+          }
+        }	
+
+	stage('Execute Maven') {
            steps {
              
                 bat 'mvn package'             
@@ -48,4 +56,10 @@ pipeline {
             }
         }
     }
+     post { 
+        always { 
+          junit 'test-results.xml'   
+        }
+    }
+    
 }
