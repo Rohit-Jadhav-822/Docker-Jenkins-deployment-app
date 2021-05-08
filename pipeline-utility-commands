@@ -1,0 +1,8 @@
+stage('Start container on remote host') {
+        steps{
+            sshagent(credentials : ['Docker-host-ssh']) {
+             sh "docker build -t spring-boot-actuator ."
+             sh "docker tag spring-boot-actuator 21041993/spring-boot-actuator:1.0.1"
+            }
+        }
+    }
