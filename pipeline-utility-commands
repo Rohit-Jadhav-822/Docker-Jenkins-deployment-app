@@ -1,3 +1,9 @@
+stage('push artifact on remote host') {
+        steps{
+            sshPublisher(publishers: [sshPublisherDesc(configName: 'Docker-host-ssh', transfers: [sshTransfer(cleanRemote: false, excludes: '', execCommand: 'echo \'hello\'', execTimeout: 120000, flatten: false, makeEmptyDirs: false, noDefaultExcludes: false, patternSeparator: '[, ]+', remoteDirectory: '/builds/', remoteDirectorySDF: false, removePrefix: '', sourceFiles: '/target/*.jar')], usePromotionTimestamp: false, useWorkspaceInPromotion: false, verbose: false)])
+        }
+    }
+
 stage('Start container on remote host') {
         steps{
             sshagent(credentials : ['Docker-host-ssh']) {
